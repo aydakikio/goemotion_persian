@@ -48,10 +48,10 @@ def translator() -> int:
     load_dotenv()
     client = OpenAI(base_url='https://api.gapgpt.app/v1', api_key=os.getenv('GAP_GPT_API'))
 
-    df = panda.read_csv('../data/translated/translated_test.tsv', delimiter='\t', header=None)
+    df = panda.read_csv('../data/translated/translated_dev.tsv', delimiter='\t', header=None)
 
     BATCH_SIZE = 10
-    START_FROM = 0
+    START_FROM = -1
     source_col = df.columns[0]
 
     pending = [i for i in df.index if i > START_FROM]
@@ -71,7 +71,7 @@ def translator() -> int:
                 for idx, translation in zip(batch_indices, translations):
                     df.at[idx, source_col] = translation
 
-                df.to_csv('../data/translated/translated_test.tsv',
+                df.to_csv('../data/translated/translated_dev.tsv',
                           sep='\t', index=False, header=False)
 
                 time.sleep(1)

@@ -5,10 +5,8 @@ from dotenv import load_dotenv
 import os
 import re
 
-
 MAX_RETRIES = 3
 RETRY_DELAY = 5  # seconds between retries
-
 
 def translate(llm_client: OpenAI, texts: list[str]) -> list[str]:
     translations = []
@@ -20,8 +18,7 @@ def translate(llm_client: OpenAI, texts: list[str]) -> list[str]:
             messages=[
                 {"role": "system", "content": "You are a translator. Translate the given text to Persian. "
                                               "Return ONLY the numbered translations, one per line, "
-                                              "with no extra commentary."
-                                              "if you can't translate that return I can't translate."},
+                                              "with no extra commentary."},
                 {"role": "user", "content": numbered_texts}
             ]
         )
@@ -51,10 +48,10 @@ def translator() -> int:
     load_dotenv()
     client = OpenAI(base_url='https://api.gapgpt.app/v1', api_key=os.getenv('GAP_GPT_API'))
 
-    df = panda.read_csv('../data/translated/translated_train.tsv', delimiter='\t', header=None)
+    df = panda.read_csv('../data/translated/translated_test.tsv', delimiter='\t', header=None)
 
     BATCH_SIZE = 10
-    START_FROM = 43027
+    START_FROM = 0
     source_col = df.columns[0]
 
     pending = [i for i in df.index if i > START_FROM]
@@ -74,7 +71,7 @@ def translator() -> int:
                 for idx, translation in zip(batch_indices, translations):
                     df.at[idx, source_col] = translation
 
-                df.to_csv('../data/translated/translated_train.tsv',
+                df.to_csv('../data/translated/translated_test.tsv',
                           sep='\t', index=False, header=False)
 
                 time.sleep(1)

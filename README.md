@@ -1,8 +1,8 @@
 # GoEmotion Persian 
-![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)
-![Language: Persian](https://img.shields.io/badge/Language-Persian%20(Farsi)-blue)
-![Records: ~54k](https://img.shields.io/badge/Records-~54%2C000-green)
-![Kaggle](https://img.shields.io/badge/Kaggle-Dataset-orange?logo=kaggle)
+![License](https://img.shields.io/badge/license-CC_BY_4.0-lightgrey.svg?style=for-the-badge)
+![Language](https://img.shields.io/badge/language-Persian_(Farsi)-blue.svg?style=for-the-badge)
+![Dataset Size](https://img.shields.io/badge/rows-~54K-green.svg?style=for-the-badge)
+![Kaggle](https://img.shields.io/badge/kaggle-dataset-orange.svg?style=for-the-badge&logo=kaggle)
 
 ## 📖 Overview
 
@@ -15,7 +15,94 @@ This Persian version makes the GoEmotions benchmark accessible for **Persian
 NLP research**, enabling tasks such as emotion detection, sentiment analysis,
 and multi-label text classification in Farsi.
 
-🔗 **Also available on Kaggle:** [GoEmotion Persian](https://www.kaggle.com/datasets/aydakikio/goemotion-persian)
+---
+
+## 📥 Dataset Access
+
+The GoEmotion Persian dataset can be accessed in multiple ways:
+
+### 1️⃣Kaggle Dataset
+
+The dataset is also available on Kaggle for direct use in notebooks:
+
+👉 [https://www.kaggle.com/datasets/aydakikio/goemotion-persian](https://www.kaggle.com/datasets/aydakikio/goemotion-persian)
+
+You can use it directly in Kaggle:
+
+```
+import pandas as pd
+
+path = "/kaggle/input/goemotion-persian/translated_train.tsv"
+df = pd.read_csv(path, sep="\t", header=None)
+```
+
+---
+
+### 2️⃣ Download from GitHub Releases
+
+Pre-packaged dataset versions are available in the **Releases** section:
+
+👉 [https://github.com/aydakikio/goemotion_persian/releases](https://github.com/aydakikio/goemotion_persian/releases)
+
+You can download:
+
+* Raw TSV files
+* Translated dataset
+
+
+---
+### 3️⃣ Clone the Repository (Recommended for development)
+
+```bash
+git clone https://github.com/aydakikio/goemotion_persian.git
+cd goemotion_persian
+```
+
+---
+
+## 🧭 Provenance
+
+This dataset is a Persian translation of the **GoEmotions benchmark** created by Google Research.
+
+The dataset was constructed using a hybrid pipeline:
+
+### 🤖 Automated Translation
+
+* The majority of translations were generated using:
+  * **Gemini 2.5**
+  * **Gemini 2.5 Lite**
+* These models were used to translate English Reddit comments into Persian while preserving emotional context and label alignment.
+
+### ✋ Manual Correction
+
+* A subset of samples was manually translated and corrected.
+* Manual review focused on:
+
+  * untranslated or partially translated rows
+  * noisy inputs (URLs, special tokens, malformed text)
+  * improving fluency and cultural adaptation in Persian
+
+### 🧪 Quality Control
+
+* Automated validation tests were applied to ensure:
+
+  * Persian script consistency
+  * missing or empty translations detection
+  * duplication filtering
+  * length ratio sanity checks between source and target text
+
+### 📊 Human Review
+
+* A random sample of ~500 rows from each split was manually inspected to assess translation quality and consistency.
+
+### 🔗 Reproducibility
+This repository includes:
+
+* translation pipeline implementation
+* dataset preprocessing scripts
+* QA / validation tools
+* experiment and processing logs
+* skipped / error batch tracking
 
 ---
 
@@ -36,7 +123,7 @@ goemotion_persian/
 │       ├── translated_dev.tsv # 5,426 rows
 │       ├── translated_test.tsv # 5,427 rows
 │       └── translated_train.tsv # 43,410 rows
-├── source_code
+├── source_code 
 │   ├── audiot_test.py #Quality tester
 |   └── translator.py #translation pipeline
 ├── log_files
@@ -209,5 +296,5 @@ If you use this dataset in your research, please cite both the original GoEmotio
 ---
 
 ## 🪶 License
-This dataset is released under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)**.
+This dataset is released under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and **Apache 2.0**.
 The original GoEmotions dataset is licensed under **Apache 2.0** by Google Research.

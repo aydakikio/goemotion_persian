@@ -1,0 +1,48 @@
+=======================================================
+      GOEMOTION PERSIAN — TEST REPORT
+=======================================================
+Original rows:     43410
+Translated rows:   43410
+Exception rows:    [40111, 40589, 15696, 24273, 37960] (skipped in tests)
+
+[ TEST 1 ] Row Count & Additional/Missing Rows
+  ✅ PASS — Both files have 43410 rows
+
+[ TEST 2 ] Missing or Empty Translations
+  ✅ PASS — No empty translations
+
+[ TEST 3 ] Persian Script Validity
+  ❌ FAIL — 45 rows have low/no Persian content
+     Indices: [116, 2882, 3029, 3583, 6849, 7010, 7011, 7012, 7013, 7014, 7015, 7016, 7017, 7018, 7019, 7987, 11235, 11287, 12000, 13499]
+     Avg Persian ratio: 76.46%
+
+[ TEST 4 ] Untranslated Rows (Identical to Source)
+  ✅ PASS — No untranslated rows (exceptions excluded)
+
+[ INFO  ] Exception Row Status
+  Row  40112 | SRC: r/NotHowLesbiansWork
+         | TRN: r/NotHowLesbiansWork
+  Row  40590 | SRC: O R B M A I N
+         | TRN: O R B M A I N
+  Row  15697 | SRC: Hbxxx cc x CS t
+         | TRN: Hbxxx cc x CS t
+  Row  24274 | SRC: XD
+         | TRN: XD
+  Row  37961 | SRC: (:)
+         | TRN: (:)
+
+[ TEST 5 ] Suspicious Translation Length
+  ⚠️  WARN — 6 suspiciously short translations
+     Indices: [2021, 12508, 15493, 20785, 21207, 27206]
+     Avg length ratio: 1.04
+
+[ TEST 6 ] Duplicate Translations
+  ⚠️  WARN — 250 duplicate translations found
+
+[ TEST 7 ] Labels Intact
+  ✅ PASS — All labels present (711 unique labels)
+
+=======================================================
+    EXPORTING 500 RANDOM SAMPLE FOR MANUAL REVIEW
+=======================================================
+  ✅ Saved: manual_review_500.csv  (500 rows)

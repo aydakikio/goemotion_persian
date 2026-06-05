@@ -1,0 +1,43 @@
+"/home/ayda/Documents/Projects/Research projects/goemotion_persian/.venv/bin/python" /home/ayda/Documents/Projects/Research projects/goemotion_persian/source_code/audiot_test.py
+=======================================================
+      GOEMOTION PERSIAN — TEST REPORT
+=======================================================
+Original rows:   43410
+Translated rows: 43410
+
+[ TEST 1 ] Row Count & Additional/Missing Rows
+  ✅ PASS — Both files have 43410 rows, nothing extra or missing
+
+[ TEST 2 ] Missing or Empty Translations
+  ✅ PASS — No empty translations
+
+[ TEST 3 ] Persian Script Validity
+  ❌ FAIL — 60 rows have low/no Persian content
+     Indices: [116, 2882, 3029, 3583, 6849, 7010, 7011, 7012, 7013, 7014, 7015, 7016, 7017, 7018, 7019, 7987, 9170, 11235, 11287, 12000]
+     Avg Persian ratio: 76.43%
+
+[ TEST 4 ] Untranslated Rows (Identical to Source)
+  ❌ FAIL — 14 rows were NOT translated
+     Indices: [9170, 15696, 16363, 16414, 18015, 24273, 37213, 37214, 37215, 37524, 37525, 37960, 40111, 40589]
+
+[ TEST 5 ] Suspicious Translation Length
+  ⚠️  WARN — 7 translations are very short vs source
+     Indices: [2021, 12508, 15493, 20785, 21207, 27206, 37212]
+     Avg length ratio: 1.04
+
+[ TEST 6 ] Duplicate Translations
+  ⚠️  WARN — 250 duplicate translations found
+
+[ TEST 7 ] Labels Intact (from original file)
+  ✅ PASS — All labels present (711 unique labels)
+
+=======================================================
+    EXPORTING 500 RANDOM SAMPLE FOR MANUAL REVIEW
+=======================================================
+  ✅ Saved: manual_review_500.csv (500 rows)
+  Open in Excel/Sheets — Persian will render correctly
+
+  Report saved: test_report.txt
+=======================================================
+
+Process finished with exit code 0

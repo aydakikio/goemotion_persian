@@ -1,0 +1,38 @@
+=======================================================
+      GOEMOTION PERSIAN — TEST REPORT
+=======================================================
+Original rows:     5426
+Translated rows:   5426
+Exception rows:    [] (skipped in tests)
+
+[ TEST 1 ] Row Count & Additional/Missing Rows
+  ✅ PASS — Both files have 5426 rows
+
+[ TEST 2 ] Missing or Empty Translations
+  ✅ PASS — No empty translations
+
+[ TEST 3 ] Persian Script Validity
+  ❌ FAIL — 5 rows have low/no Persian content
+     Indices: [565, 1272, 1812, 1851, 4489]
+     Avg Persian ratio: 76.48%
+
+[ TEST 4 ] Untranslated Rows (Identical to Source)
+  ❌ FAIL — 3 rows were NOT translated
+     Indices: [1272, 1851, 4489]
+
+[ INFO  ] Exception Row Status
+
+[ TEST 5 ] Suspicious Translation Length
+  ✅ PASS — No suspiciously short translations
+     Avg length ratio: 1.00
+
+[ TEST 6 ] Duplicate Translations
+  ⚠️  WARN — 10 duplicate translations found
+
+[ TEST 7 ] Labels Intact
+  ✅ PASS — All labels present (296 unique labels)
+
+=======================================================
+    EXPORTING 500 RANDOM SAMPLE FOR MANUAL REVIEW
+=======================================================
+  ✅ Saved: manual_review_200.csv  (200 rows)

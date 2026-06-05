@@ -5,19 +5,28 @@ import random
 # ============================================================
 #  CONFIG
 # ============================================================
-ORIGINAL_FILE    = "../data/raw/raw_train.tsv"
-TRANSLATED_FILE  = "../data/translated/translated_train.tsv"
+ORIGINAL_FILE    = "../data/raw/raw_test.tsv"
+TRANSLATED_FILE  = "../data/translated/translated_test.tsv"
 
 ORIGINAL_TEXT_COL   = 0
 TRANSLATED_TEXT_COL = 0
 LABEL_COL           = 1
 
-SAMPLE_SIZE         = 500
-SAMPLE_OUTPUT       = "manual_review_500.csv"
+SAMPLE_SIZE         = 200
+SAMPLE_OUTPUT       = "manual_review_200.csv"
 REPORT_OUTPUT       = "test_result.log"
 
 # Rows that should NOT be translated — subtract 1 because you added 1
-EXCEPTION_ROWS = [x - 1 for x in [40112, 40590, 15697, 24274,37961]]
+
+#For Train dataset
+#EXCEPTION_ROWS = [x - 1 for x in [40112, 40590, 15697, 24274,37961]]
+
+# For Dev dataset
+#EXCEPTION_ROWS = [x - 1 for x in [1273,1852,4490]]
+
+#For Test dataset
+EXCEPTION_ROWS = []
+
 # ============================================================
 
 orig  = pd.read_csv(ORIGINAL_FILE,    header=None, delimiter='\t')

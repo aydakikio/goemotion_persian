@@ -297,4 +297,4 @@ If you use this dataset in your research, please cite both the original GoEmotio
 
 ## 🪶 License
 This dataset is released under **[CC BY 4.0](https://creativecommons.org/licenses/by/4.0/)** and **Apache 2.0**.
-The original GoEmotions dataset is licensed under **[CC0](https://creativecommons.org/publicdomain/zero/1.0/)** **Apache 2.0** by Google Research.
+The original GoEmotions dataset is licensed under **[CC0] and (https://creativecommons.org/publicdomain/zero/1.0/)** **Apache 2.0** by Google Research.

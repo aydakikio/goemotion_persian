@@ -1,3 +1,6 @@
+# Manual Translation
+A subset of rows in the training split could not be processed by the automated translation pipeline and were therefore translated manually. These rows are documented in the accompanying cleaning log; however, it should be noted that the log may be incomplete, as some manually cleaned rows were not recorded at the time of cleaning. Similarly, the row indices reported in the paper may not reflect the full set of affected entries. Due to the nature of manual intervention, the row indices of these entries may also be offset by one position (either preceding or following the logged index), as minor misalignments can occur when rows are inserted or removed during the cleaning process. Researchers using this dataset should account for a ±1 row tolerance when referencing these specific entries by index.
+
 | ROW Number | File |
 | :--------: | :----: |
 | 20 | translated_train.tsv |
@@ -136,4 +139,4 @@
 | 43006 | translated_train.tsv |
 | 43007 | translated_train.tsv |
 | 43028 | translated_train.tsv |
-| 0 | translated_dev.tsv |
+| 0 | translated_test.tsv |
